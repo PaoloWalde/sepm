@@ -3,6 +3,8 @@ package accounts;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import java.sql.*;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,8 +16,8 @@ public class Login extends JFrame
 {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField usernameField;
+	private JTextField passwordField;
 
 	/**
 	 * Launch the application.
@@ -58,23 +60,33 @@ public class Login extends JFrame
 		lblNewLabel_1.setBounds(122, 96, 87, 16);
 		contentPane.add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(215, 91, 130, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		usernameField = new JTextField();
+		usernameField.setBounds(215, 91, 130, 26);
+		contentPane.add(usernameField);
+		usernameField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password:");
 		lblNewLabel_2.setBounds(122, 124, 71, 16);
 		contentPane.add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(215, 119, 130, 26);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		passwordField = new JTextField();
+		passwordField.setBounds(215, 119, 130, 26);
+		contentPane.add(passwordField);
+		passwordField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBounds(175, 164, 117, 29);
-		contentPane.add(btnNewButton);
+		JButton loginButton = new JButton("Login");
+			
+		try 
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("", "", "");
+		}
+			catch (Exception e)
+			{
+				
+			}
+		loginButton.setBounds(175, 164, 117, 29);
+		contentPane.add(loginButton);
 	}
 
 }

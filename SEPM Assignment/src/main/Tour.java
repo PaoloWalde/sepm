@@ -2,6 +2,8 @@ package main;
 
 public class Tour
 {
+	// TO DO:
+	
 	// create tour: add name, add duration, add type
 	
 	// remove tour
