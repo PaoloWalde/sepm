@@ -143,7 +143,7 @@ package main;
 	    			new Location("Route1","Rocky"),
 	    			new Location("Route2","Road"),  
 	    		};
-	    	tours.add(new Tour(100, 5));
+	    	tours.add(new Tour());
 	    	tours.get(0).setLocationNo(1);
 	    	tours.get(0).setName("hey");
 	    	tours.get(0). setDate("2018-10-10");
@@ -208,7 +208,7 @@ package main;
 	      
 	     
 	     // Create the tour object 
-	     Tour tour = new Tour ("Ancient Dinosaurs", 201, "Interactive", "2 hours", 5);
+	     Tour tour = new Tour ("Ancient Dinosaurs", 201, "Interactive", 5);
 	     lfound.setAvailability(false);
 	     tour.setLocationNo(lfound.getLocationNo());
 	     tours.add(tour);

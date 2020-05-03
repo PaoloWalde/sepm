@@ -11,7 +11,7 @@ public class Tour implements Serializable, Comparable<Tour>
 	private int locationNo;
 	private String type;
 	private LocalDate startDate;
-	private String duration;
+	private long duration;
 	private String availability;
 	
 	static int nextID = 1;
@@ -22,7 +22,7 @@ public class Tour implements Serializable, Comparable<Tour>
 	}
 
 	
-	public Tour (String name, int id, String type, String duration, int locationNo)
+	public Tour (String name, int id, String type, int locationNo)
 	{
 		this.name = name;
 		this.id = id;
@@ -32,7 +32,7 @@ public class Tour implements Serializable, Comparable<Tour>
 	    this.id = nextID++;
 	}
 	
-	public Tour (int locationNo, String duration) {
+	public Tour (int locationNo, long duration) {
 	    this.locationNo = locationNo;
 	    this.duration = duration;
 	    id= nextID++;
@@ -64,12 +64,12 @@ public class Tour implements Serializable, Comparable<Tour>
 		this.locationNo = locationNo;
 	}
 	
-	public String getDuration()
+	public long getDuration()
 	{
 		return duration;
 	}
 	
-	 public void setDuration (String duration)
+	 public void setDuration (long duration)
 	 { 
 		 this.duration = duration;
 	 }
