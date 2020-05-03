@@ -1,14 +1,115 @@
 package main;
 
-public class Tour
+import java.io.*;
+import java.time.*;
+
+
+public class Tour implements Serializable, Comparable<Tour> 
 {
-	// TO DO:
+	private String name;
+	private int id;
+	private int locationNo;
+	private String type;
+	private LocalDate startDate;
+	private String duration;
+	private String availability;
 	
-	// create tour: add name, add duration, add type
+	static int nextID = 1;
+	  
+	public Tour () 
+	{
+	   this.id = nextID++;
+	}
+
 	
-	// remove tour
+	public Tour (String name, int id, String type, String duration, int locationNo)
+	{
+		this.name = name;
+		this.id = id;
+		this.type = type;
+		this.duration = duration;
+		this.locationNo = locationNo;
+	    this.id = nextID++;
+	}
 	
-	// edit tour: add location to tour, edit tour name, remove location from tour
+	public Tour (int locationNo, String duration) {
+	    this.locationNo = locationNo;
+	    this.duration = duration;
+	    id= nextID++;
+	  }
+
 	
-	// edit tour type: change type, add new type, remove type
+	public String getName()
+	{
+		return name;
+	}
+	 
+	public void setName (String name) 
+	{
+		this.name = name;
+	}
+	
+	public String getType()
+	{
+		return type;
+	}
+	
+	public int getLocationNo()
+	{
+		return locationNo;
+	}
+	
+	public void setLocationNo (int locationNo) 
+	{
+		this.locationNo = locationNo;
+	}
+	
+	public String getDuration()
+	{
+		return duration;
+	}
+	
+	 public void setDuration (String duration)
+	 { 
+		 this.duration = duration;
+	 }
+	
+	public String getAvailability()
+	{
+		return availability;
+	}
+	
+	public int getTourId()
+	{
+		return id;
+	}
+	
+	public LocalDate getDate () 
+	{
+	return startDate;
+	}
+	
+	public void setDate (String dateStr) 
+	{
+		startDate = LocalDate.parse(dateStr);
+	}
+	
+	public LocalDate getEndDate()
+	{
+		return startDate.plusDays(duration);
+	}
+	
+	public int compareTo(Tour t)
+	{
+		LocalDate endDate = this.getEndDate();
+		LocalDate endDate1 = t.getEndDate();
+		return endDate.compareTo(endDate1);
+	}
+
+	
+	 public String toString () 
+	 {
+		    return "Location No: " + locationNo +"Tour Name: " + name + ", start date: " + startDate + ", duration: " + duration+ 
+		            "\nLocation #: " + locationNo + "\n";
+	 }
 }
