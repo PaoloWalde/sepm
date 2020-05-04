@@ -1,7 +1,7 @@
 import java.io.*;
 import java.time.*;
 
-public class Locations implements Serializable, Comparable<Locations> 
+public class Location implements Serializable, Comparable<Location> 
 {
   private int locationId;
   private String locName;
@@ -15,11 +15,11 @@ public class Locations implements Serializable, Comparable<Locations>
   
   static int nextID = 1;
   
-  public Locations() {
+  public Location() {
     locationId = nextID++;
   }
   
-  public Locations (String locName, int xCoordinates, int yCoordinates, String description, LocalDate startDate, int duration) {
+  public Location (String locName, int xCoordinates, int yCoordinates, String description, LocalDate startDate, int duration) {
     this.locName = locName;
     this.xCoordinates = xCoordinates;
     this.yCoordinates = yCoordinates;
